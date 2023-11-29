@@ -29,10 +29,16 @@ public class EnemyController : MonoBehaviour
         if (agent != null)
         {
             timer += Time.deltaTime;
-            Walk();
+            
+            //Debug.Log(timer);
             if(teleport)
             {
+                Debug.Log("tele");
                 TeleportEnemy();
+            }
+            else
+            {
+                Walk();
             }
         }
     }
@@ -52,9 +58,10 @@ public class EnemyController : MonoBehaviour
     {
         if (timer > 2.5)
         {
+            agent.SetDestination(this.transform.position);
             Debug.Log("Teleport");
             animator.SetBool("Attack", true);
-            teleport=false;
+            //teleport=false;
             timer = 0;
         }
     }

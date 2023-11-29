@@ -7,12 +7,19 @@ public class HealthComponent : MonoBehaviour
     public float Health = 100f;
     public float Damage ;
     public Material EnviRend;
+    private Animator animator;
+    
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Weapon"))
         {
             EnviRend.SetColor("_Color", Color.white);
+            Debug.Log(Damage);
             Health = Health - Damage;
             if (Health <= 0)
             {
@@ -20,6 +27,7 @@ public class HealthComponent : MonoBehaviour
                 if (EnviRend != null)
                 {
                     EnviRend.SetColor("_Color", Color.black);
+                    animator.SetBool("Death", true);
                     StartCoroutine(DeathEffect());
                 }
             }
