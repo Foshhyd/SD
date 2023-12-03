@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    //public GameObject Player;
+    /*//public GameObject Player;
     public GameObject Enemy;
     //private Transform Target;
     private Vector3 PlayerPos = new Vector3 (0, 0, 0);
@@ -29,18 +29,18 @@ public class EnemyController : MonoBehaviour
         if (agent != null)
         {
             timer += Time.deltaTime;
-            
+            Walk();
             //Debug.Log(timer);
             if(teleport)
             {
                 Debug.Log("tele");
                 TeleportEnemy();
             }
-            else
+            /*else
             {
                 Walk();
-            }
-        }
+            }*/
+      /*  }
     }
 
     void Walk()
@@ -64,5 +64,5 @@ public class EnemyController : MonoBehaviour
             //teleport=false;
             timer = 0;
         }
-    }
+    }*/
 }

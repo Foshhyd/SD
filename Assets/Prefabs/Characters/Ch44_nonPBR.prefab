@@ -1407,6 +1407,7 @@ GameObject:
   - component: {fileID: 2377117527849229755}
   - component: {fileID: 6165618937110283591}
   - component: {fileID: -7898193625301212549}
+  - component: {fileID: 875268193468702435}
   - component: {fileID: -5818381533096998858}
   m_Layer: 0
   m_Name: Ch44_nonPBR
@@ -1481,7 +1482,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dffb4ac9af150c140bf8fa69e57dba14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy: {fileID: 7549901344201771912, guid: fdc03e002f1aded44b0bdffec7591291, type: 3}
 --- !u!114 &-7898193625301212549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1497,6 +1497,18 @@ MonoBehaviour:
   Health: 100
   Damage: 50
   EnviRend: {fileID: 2100000, guid: 9c95a269347ca1e4ca1f81144d63919f, type: 2}
+--- !u!114 &875268193468702435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6633093724020394430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef3d484e44378f04984bc14e94fe0f50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!195 &-5818381533096998858
 NavMeshAgent:
   m_ObjectHideFlags: 0

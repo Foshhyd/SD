@@ -23,11 +23,11 @@ public class HealthComponent : MonoBehaviour
             Health = Health - Damage;
             if (Health <= 0)
             {
+                animator.Play("Death");
                 Destroy(gameObject, 3);
                 if (EnviRend != null)
                 {
                     EnviRend.SetColor("_Color", Color.black);
-                    animator.SetBool("Death", true);
                     StartCoroutine(DeathEffect());
                 }
             }

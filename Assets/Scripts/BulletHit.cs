@@ -17,7 +17,6 @@ public class BulletHit : MonoBehaviour
         //Destroy Collided object and Bullet
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            //Destroy(collision.gameObject);
             Destroy(gameObject);
         }
     }

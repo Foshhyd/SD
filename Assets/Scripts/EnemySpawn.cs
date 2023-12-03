@@ -20,7 +20,7 @@ public class EnemySpawn : MonoBehaviour
     {
         while(EnemyCount > 0)
         {
-            Vector3 EnemyPosition = new Vector3(Random.Range(-50f, 50f), -1.8f, 0.0f);
+            Vector3 EnemyPosition = new Vector3(Random.Range(-25f, 25f), -1.8f, Random.Range(-25f, 25f));
             Vector3 relativePos = PlayerPos - EnemyPosition;
             Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
             EnemyRotation = rotation;
