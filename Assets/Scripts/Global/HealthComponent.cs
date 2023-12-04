@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HealthComponent : MonoBehaviour
 {
     public float Health = 100f;
-    public float Damage ;
+    public float Damage;
     public Material EnviRend;
+    public string LayerName;
+    public string SceneName;
     private Animator animator;
     
     void Start()
@@ -16,10 +19,9 @@ public class HealthComponent : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Weapon"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Weapon") && LayerMask.NameToLayer("Weapon") == LayerMask.NameToLayer(LayerName))
         {
             EnviRend.SetColor("_Color", Color.white);
-            Debug.Log(Damage);
             Health = Health - Damage;
             if (Health <= 0)
             {
@@ -32,6 +34,15 @@ public class HealthComponent : MonoBehaviour
                 }
             }
             
+        }
+        else if(collision.gameObject.layer == LayerMask.NameToLayer("EWeapon") && LayerMask.NameToLayer("EWeapon") == LayerMask.NameToLayer(LayerName))
+        {
+            Health = Health - Damage;
+            if (Health <= 0)
+            {
+                this.gameObject.SetActive(false);
+                SceneManager.LoadScene(SceneName);
+            }
         }
     }
     IEnumerator DeathEffect()

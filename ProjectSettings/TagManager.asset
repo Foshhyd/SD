@@ -14,8 +14,8 @@ TagManager:
   - Ground
   - Enemy
   - Weapon
-  - 
-  - 
+  - Player
+  - EWeapon
   - 
   - 
   - 

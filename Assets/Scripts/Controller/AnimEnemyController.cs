@@ -5,9 +5,11 @@ using UnityEngine.AI;
 
 public class AnimEnemyController : MonoBehaviour
 {
+    public GameObject PSLightning;
     private Animator anim;
     private Vector3 PlayerPos = new Vector3(0, 0, 0);
     private NavMeshAgent agent;
+    private Quaternion PSRotation;
 
     //Variables
     private bool bTeleport = true;
@@ -16,6 +18,7 @@ public class AnimEnemyController : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        PSRotation = new Quaternion(0, 90f, 90f, 1f);
     }
 
     // Update is called once per frame
@@ -33,6 +36,7 @@ public class AnimEnemyController : MonoBehaviour
                 bTeleport = false;
                 Teleport();
             }
+            Instantiate(PSLightning, this.transform.position, PSRotation);
             agent.SetDestination(this.transform.position);
         }
         else if(anim.GetCurrentAnimatorStateInfo(0).IsTag("Death"))

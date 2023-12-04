@@ -8,6 +8,18 @@ public class TransitionManager : MonoBehaviour
 {
     public void SceneLoad(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        //Camera movement before scene transition
+
+        StartCoroutine(LoadLevelASync(sceneName));
+    }
+
+    IEnumerator LoadLevelASync(string sceneName)
+    {
+        AsyncOperation loadOperation = SceneManager.LoadSceneAsync(sceneName);
+
+        while (loadOperation != null)
+        {
+            yield return null;
+        }
     }
 }

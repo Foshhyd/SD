@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletHit : MonoBehaviour
 {
     public float Life;
-    //public LayerMask EnemyLM;
+    public string LayerName;
     
     void Awake()
     {
@@ -15,7 +15,7 @@ public class BulletHit : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         //Destroy Collided object and Bullet
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer(LayerName))
         {
             Destroy(gameObject);
         }
